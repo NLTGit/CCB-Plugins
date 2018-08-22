@@ -10,8 +10,8 @@ RUN cat /tmp/ccb-disasters-8-17-18.sql  | sed -e 's/https:\/\/communities.geopla
 RUN /bin/bash -c "/usr/bin/mysqld_safe --skip-grant-tables &" && \
   sleep 5 && \
   mysql -u root -e "CREATE DATABASE wordpress" && \
-  mysql -u root wordpress < /tmp/dump.sql && \
-  rm /tmp/dump.sql /tmp/ccb-disasters-8-17-18.sql
-
+  mysql -u root -D wordpress < /tmp/dump.sql && \
+  rm /tmp/dump.sql /tmp/ccb-disasters-8-17-18.sql && \
+  more /var/lib/mysql/*err
 
 

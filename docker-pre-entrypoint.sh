@@ -19,7 +19,6 @@ if [[ ! $root_url =~ ^https?://.+  ]]; then
   exit 1
 fi
 
-
 # Setup the URL rewriting
 # sed -i "s/%%sitename%%/$sitename/g" /etc/apache2/apache2.conf
 sed -i "s/%%sitename%%/$sitename/g" .htaccess
