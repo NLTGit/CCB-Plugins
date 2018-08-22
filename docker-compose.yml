@@ -47,7 +47,6 @@ services:
       MYSQL_ROOT_PASSWORD: imroot:012!
     volumes:
        - /var/lib/mysql
-       - ./db_data:/tmp/db_data:rw
 
   phpadmin:
     image: phpmyadmin/phpmyadmin
