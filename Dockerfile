@@ -72,6 +72,13 @@ RUN curl -L -o /usr/src/open-id-generic-master.zip \
 		rm /usr/src/open-id-generic-master.zip;
 #########################################################
 
+# custom uploads content
+RUN curl -L -o /usr/src/upload_media.zip \
+					https://s3.amazonaws.com/vadose-support/upload_media.zip; \
+	  unzip -d /usr/src/wordpress/wp-content/ \
+					/usr/src/upload_media.zip; \
+		rm /usr/src/upload_media.zip
+
 # The /usr/src/wordpress/ dir in the container is copied to /var/www/html
 # in the docker-entrypoint.sh for Wordpress
 ADD ./plugins /usr/src/wordpress/wp-content/plugins/

@@ -39,7 +39,7 @@ services:
       WORDPRESS_DB_PASSWORD: imroot:012!
 
   mysql:
-    image: mysql:5.6
+    build: mysql/
     ports:
       - "3306:3306"
     environment:
@@ -47,6 +47,7 @@ services:
       MYSQL_ROOT_PASSWORD: imroot:012!
     volumes:
        - /var/lib/mysql
+       - ./db_data:/tmp/db_data:rw
 
   phpadmin:
     image: phpmyadmin/phpmyadmin
